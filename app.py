@@ -178,15 +178,15 @@ korean_text = st.text_area(
     label_visibility="collapsed",
 )
 
+
+def clear_input():
+    st.session_state["korean_input"] = ""
 col1, col2 = st.columns([1, 3])
 with col1:
     translate_clicked = st.button("Translate 🔁", type="primary", use_container_width=True)
 with col2:
-    clear_clicked = st.button("Clear", use_container_width=True)
+   st.button("Clear", use_container_width=True, on_click=clear_input)
 
-if clear_clicked:
-    st.session_state["korean_input"] = ""
-    st.rerun()
 
 if translate_clicked:
     if not korean_text.strip():
