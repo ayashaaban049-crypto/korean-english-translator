@@ -123,17 +123,9 @@ def use_sample(sentence):
 # Sidebar
 # ---------------------------------------------------------------------------
 with st.sidebar:
-    st.markdown("### About")
-    st.write(
-        "Bidirectional Korean ↔ English translation using NLLB-200-distilled-600M, "
-        "fine-tuned on a Korean–English parallel corpus (OPUS-100 subset)."
-    )
-    st.caption("Model weights: CC-BY-NC-4.0 (non-commercial use only).")
     st.markdown("### Try a sample")
     for sample in SAMPLES[st.session_state["src_lang"]]:
         st.button(sample, use_container_width=True, on_click=use_sample, args=(sample,), key=f"sample_{sample}")
-    st.markdown("---")
-    st.caption(f"Model: `{MODEL_NAME}`")
 
 
 # ---------------------------------------------------------------------------
@@ -198,3 +190,5 @@ if translate_clicked:
             """,
             unsafe_allow_html=True,
         )
+
+st.caption("Model weights: CC-BY-NC-4.0 (non-commercial use only).")
